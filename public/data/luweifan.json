@@ -1,0 +1,12 @@
+[
+  {
+    "name": "卤鸡腿饭",
+    "price": "12",
+    "pic": "data/images/luweifan/lujituifan.jpg"
+  },
+  {
+    "name": "卤鸭腿饭",
+    "price": "14",
+    "pic": "data/images/luweifan/luyatuifan.jpg"
+  }
+]

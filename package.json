@@ -1,0 +1,11 @@
+{
+  "name": "food-order",
+  "description": "web app for order food on line",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "4.12.4",
+    "body-parser": "1.12.4",
+    "serve-favicon": "2.2.1",
+    "mongoose": "4.0.1"
+  }
+}
