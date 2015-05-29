@@ -44,6 +44,7 @@ Ext.define('FO.view.Viewport', {
         region: 'center'
     }, {
         xtype: 'tabpanel',
+        plain: true,
         region: 'south',
         height: 240,
         layout: 'fit',

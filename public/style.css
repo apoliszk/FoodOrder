@@ -63,10 +63,16 @@
 .order-table {
     border: thin solid #A3BAE9;
     border-collapse: collapse;
+    width: 100%;
+}
+
+.order-table th {
+    text-align: left;
+    padding: 5px;
 }
 
 .order-table td {
-    text-align: center;
+    text-align: right;
     padding: 5px;
     border: thin solid #A3BAE9;
 }

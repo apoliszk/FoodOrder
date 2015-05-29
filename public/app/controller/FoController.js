@@ -86,6 +86,8 @@ Ext.define('FO.controller.FoController', {
     },
 
     onAddFood: function (view, record) {
+        var tabPanel = this.getAppViewPort().down('tabpanel');
+        tabPanel.setActiveTab(tabPanel.down('shoppingcartgrid'));
         var grid = this.getShoppingCartGrid();
         var store = grid.getStore();
         var index = store.find('name', record.get('name'));

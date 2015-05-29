@@ -6,7 +6,7 @@ Ext.define('FO.view.OrderPanel', {
         xtype: 'component',
         itemId: 'view',
         margin: '5, 5, 5, 5',
-        tpl: '<table class="order-table"><tr><td>订单号：</td><td>{orderId}</td><td>下单时间：</td><td>{time}</td></tr><tpl for="shoppingCartItems"><tr><td>{name}</td><td colspan="3">{count}份</td></tr></tpl><tr><td>总价：</td><td colspan="3">￥{totalPrice}</td></tr></table>'
+        tpl: '<table class="order-table"><tr><th>订单编号：{orderId}</th><th>下单时间：{time}</th></tr><tpl for="shoppingCartItems"><tr><td>{name}</td><td>{count}份</td></tr></tpl><tr><td></td><td>总价：￥{totalPrice}</td></tr></table>'
     }],
 
     initComponent: function () {
