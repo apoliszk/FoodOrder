@@ -48,7 +48,6 @@ Ext.define('FO.view.OrderPanel', {
     },
 
     cancelFoodOrder: function () {
-        this.setButtonEnable(false);
         this.fireEvent('cancelfoodorder', this);
     },
 

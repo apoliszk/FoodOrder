@@ -110,7 +110,6 @@ Ext.define('FO.view.ShoppingCartGrid', {
     },
 
     submitFoodOrder: function () {
-        this.setButtonEnable(false);
         this.fireEvent('submitfoodorder', this);
     },
 

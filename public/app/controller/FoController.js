@@ -41,14 +41,22 @@ Ext.define('FO.controller.FoController', {
     },
 
     cancelFoodOrder: function () {
+        var mask = new Ext.LoadMask({
+            msg    : '订单取消中...',
+            target : Ext.getBody()
+        });
+        mask.show();
+
         var store = this.getOrdersStore();
         store.removeAll();
         store.sync({
             success: function () {
+                mask.hide();
                 Ext.tmpMsg.msg('取消订单成功', false);
                 this.loadOrder();
             },
             failure: function () {
+                mask.hide();
                 Ext.tmpMsg.msg('取消订单失败', true);
                 this.loadOrder();
             },
@@ -106,6 +114,11 @@ Ext.define('FO.controller.FoController', {
     },
 
     submitFoodOrder: function (grid) {
+        var mask = new Ext.LoadMask({
+            msg    : '订单提交中...',
+            target : Ext.getBody()
+        });
+        mask.show();
         var store = grid.getStore();
         if (store.data.length > 0) {
             var arr = [];
@@ -115,6 +128,7 @@ Ext.define('FO.controller.FoController', {
             var order = Ext.create('FO.model.Order', {shoppingCartItems: arr});
             order.save({
                 callback: function (records, operation, success) {
+                    mask.hide();
                     if (success) {
                         Ext.tmpMsg.msg('订单提交成功！', false);
                         store.removeAll();
@@ -122,7 +136,6 @@ Ext.define('FO.controller.FoController', {
                         tabPanel.setActiveTab(tabPanel.down('orderpanel'));
                     } else {
                         Ext.tmpMsg.msg('失败，已提交过订单！', true);
-                        grid.setButtonEnable(true);
                     }
                 },
                 scope: this
