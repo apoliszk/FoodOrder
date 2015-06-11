@@ -5,7 +5,7 @@ Ext.define('SUM.controller.SummaryController', {
         {ref: 'summaryGrid', selector: 'summarygrid'},
     ],
 
-    init: function() {
+    init: function () {
         var me = this;
         me.control({
             'summarygrid': {
@@ -14,8 +14,31 @@ Ext.define('SUM.controller.SummaryController', {
         });
     },
 
-    showSummaryDetail: function(record) {
+    showSummaryDetail: function (record) {
+        var obj = record.data;
         debugger;
+        var grid = Ext.create('widget.grid', {
+            border: false,
+            enableColumnHide: false,
+            enableColumnMove: false,
+            columns: [{
+                text: '用户',
+                dataIndex: 'user'
+            }, {
+                text: '数量',
+                dataIndex: 'count'
+            }],
+            store: Ext.create('Ext.data.ArrayStore', {})
+        });
+        //grid.getStore().add(obj.userList);
+        Ext.create('Ext.window.Window', {
+            title: obj.name + '（￥' + obj.price + '）',
+            width: 400,
+            height: 400,
+            modal: true,
+            layout: 'fit',
+            items: [grid]
+        }).show();
     },
 
     onLaunch: function () {
