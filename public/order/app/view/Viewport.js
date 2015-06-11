@@ -19,12 +19,12 @@ Ext.define('FO.view.Viewport', {
             xtype: 'image',
             width: 112,
             height: 60,
-            src: 'images/logo.png'
+            src: '../images/logo.png'
         }, {
             xtype: 'image',
             width: 153,
             height: 46,
-            src: 'images/logo_txt.png',
+            src: '../images/logo_txt.png',
             margin: '0 8 0 8'
         }, {
             xtype: 'component',

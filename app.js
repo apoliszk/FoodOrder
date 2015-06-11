@@ -99,7 +99,7 @@ db.once('open', function () {
         });
     });
 
-    app.get('/orderAll', function (req, res) {
+    app.get('/summary/order', function (req, res) {
         var dateObj = getStartEndDate();
 
         var model = global.models.Order;
@@ -116,13 +116,7 @@ db.once('open', function () {
                     var orderObj = {};
                     orderObj.userIp = orderModel.userIp;
                     orderObj.time = formatDate(orderModel.time);
-                    orderObj.shoppingCartItems = orderModel.shoppingCartItems;
-                    var totalPrice = 0;
-                    for (var j = orderObj.shoppingCartItems.length - 1; j >= 0; j--) {
-                        var item = orderObj.shoppingCartItems[j];
-                        totalPrice += item.price * item.count;
-                    }
-                    orderObj.totalPrice = totalPrice;
+                    orderObj.items = orderModel.shoppingCartItems;
                     retArr.push(orderObj)
                 }
                 res.end(JSON.stringify(retArr));

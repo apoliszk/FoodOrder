@@ -1,13 +1,7 @@
-Ext.define('FO.view.ShoppingCartGrid', {
+Ext.define('SUM.view.SummaryGrid', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.shoppingcartgrid',
-    store: Ext.create('FO.store.ShoppingCartFoods'),
-
-    plugins: {
-        ptype: 'cellediting',
-        clicksToEdit: 1
-    },
-
+    alias: 'widget.summarygrid',
+    store: Ext.create('SUM.store.SummaryGridItems'),
     enableColumnHide: false,
     enableColumnMove: false,
 
@@ -36,26 +30,21 @@ Ext.define('FO.view.ShoppingCartGrid', {
         xtype: 'actioncolumn',
         width: 50,
         items: [{
-            icon: 'images/delete.gif',
+            icon: '../images/detail.gif',
             handler: function (grid, rowIndex, colIndex) {
-                grid.getStore().removeAt(rowIndex);
+
             }
         }]
-    }
-    ],
+    }],
 
     initComponent: function () {
         var me = this;
-
-        me.addEvents(
-            'submitfoodorder'
-        );
 
         Ext.apply(me, {
             dockedItems: [{
                 xtype: 'container',
                 dock: 'bottom',
-                padding: '5 5 5 5',
+                padding: '5 0 5 0',
                 layout: {
                     type: 'hbox',
                     align: 'middle'
@@ -68,23 +57,11 @@ Ext.define('FO.view.ShoppingCartGrid', {
                     itemId: 'totalLabel',
                     html: '总计：￥0',
                     cls: 'total-label'
-                }, {
-                    xtype: 'button',
-                    itemId: 'submitOrderBtn',
-                    text: '下单',
-                    disabled: true,
-                    width: 200,
-                    cls: 'btn-obvious',
-                    trackOver: true,
-                    overCls: 'btn-obvious-over',
-                    scale: 'large',
-                    handler: me.submitFoodOrder,
-                    scope: me
                 }]
             }]
         });
-
         me.callParent(arguments);
+
         me.store.on({
             datachanged: {
                 scope: me,
@@ -105,15 +82,6 @@ Ext.define('FO.view.ShoppingCartGrid', {
             data = this.store.getAt(i);
             price += data.get('price') * data.get('count');
         }
-        this.setButtonEnable(len > 0);
         this.down('#totalLabel').getEl().setHTML('总计：￥' + price);
-    },
-
-    submitFoodOrder: function () {
-        this.fireEvent('submitfoodorder', this);
-    },
-
-    setButtonEnable: function (enabled) {
-        this.down('#submitOrderBtn').setDisabled(!enabled);
     }
 });
