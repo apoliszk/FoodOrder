@@ -51,9 +51,6 @@ Ext.define('SUM.view.SummaryGrid', {
                 },
                 items: [{
                     xtype: 'component',
-                    flex: '1'
-                }, {
-                    xtype: 'component',
                     itemId: 'totalLabel',
                     html: '总计：￥0',
                     cls: 'total-label'

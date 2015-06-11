@@ -36,7 +36,7 @@ Ext.define('FO.view.ShoppingCartGrid', {
         xtype: 'actioncolumn',
         width: 50,
         items: [{
-            icon: 'images/delete.gif',
+            icon: '../images/delete.gif',
             handler: function (grid, rowIndex, colIndex) {
                 grid.getStore().removeAt(rowIndex);
             }
@@ -73,6 +73,7 @@ Ext.define('FO.view.ShoppingCartGrid', {
                     itemId: 'submitOrderBtn',
                     text: '下单',
                     disabled: true,
+                    margin: "0 0 0 40",
                     width: 200,
                     cls: 'btn-obvious',
                     trackOver: true,

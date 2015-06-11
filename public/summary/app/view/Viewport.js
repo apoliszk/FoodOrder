@@ -7,13 +7,13 @@ Ext.define('SUM.view.Viewport', {
         align: 'stretch'
     },
     items: [{
+        title: '列表',
+        margin: '10 10 40 5',
+        flex: 1
+    }, {
         xtype: 'summarygrid',
         margin: '10 5 10 10',
         title: '汇总',
-        flex: 1
-    }, {
-        title: '列表',
-        margin: '10 10 40 5',
         flex: 1
     }]
 });
