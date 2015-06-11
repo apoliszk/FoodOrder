@@ -4,7 +4,7 @@ Ext.define('SUM.view.SummaryGrid', {
     store: Ext.create('SUM.store.SummaryGridItems'),
     enableColumnHide: false,
     enableColumnMove: false,
-
+    columnLines: true,
     columns: [{
         text: '名称',
         dataIndex: 'name',
@@ -19,13 +19,7 @@ Ext.define('SUM.view.SummaryGrid', {
     }, {
         text: '数量',
         dataIndex: 'count',
-        flex: 1,
-        editor: {
-            xtype: 'numberfield',
-            allowBlank: false,
-            minValue: 1,
-            maxValue: 1000
-        }
+        flex: 1
     }, {
         xtype: 'actioncolumn',
         width: 50,

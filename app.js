@@ -114,9 +114,14 @@ db.once('open', function () {
                 for (var i = 0; i < len; i++) {
                     var orderModel = doc[i];
                     var orderObj = {};
-                    orderObj.userIp = orderModel.userIp;
+                    orderObj.user = orderModel.userIp;
                     orderObj.time = formatDate(orderModel.time);
                     orderObj.items = orderModel.shoppingCartItems;
+                    var price = 0;
+                    for (var j = orderObj.items.length - 1; j >= 0; j--) {
+                        price += orderObj.items[j].price * orderObj.items[j].count;
+                    }
+                    orderObj.price = price;
                     retArr.push(orderObj)
                 }
                 res.end(JSON.stringify(retArr));

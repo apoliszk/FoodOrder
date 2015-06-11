@@ -10,6 +10,7 @@ Ext.define('FO.view.ShoppingCartGrid', {
 
     enableColumnHide: false,
     enableColumnMove: false,
+    columnLines: true,
 
     columns: [{
         text: '名称',
