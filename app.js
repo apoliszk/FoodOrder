@@ -21,12 +21,12 @@ db.once('open', function () {
     app.use(favicon(__dirname + '/public/favicon.ico'));
     app.use(bodyParser.json());
 
-    app.get('/user', function (req, res) {
+    app.get('/order/user', function (req, res) {
         var result = {ip: getRequestIp(req)};
         res.end(JSON.stringify(result));
     });
 
-    app.post('/order', function (req, res) {
+    app.post('/order/order', function (req, res) {
         var dateObj = getStartEndDate();
         var userIp = getRequestIp(req);
 
@@ -67,7 +67,7 @@ db.once('open', function () {
         }
     });
 
-    app.get('/order', function (req, res) {
+    app.get('/order/order', function (req, res) {
         var dateObj = getStartEndDate();
         var userIp = getRequestIp(req);
 

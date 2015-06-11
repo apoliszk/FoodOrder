@@ -1,0 +1,12 @@
+[
+  {
+    "name": "陕西凉皮",
+    "price": "8",
+    "pic": "data/images/xiaochi/shanxiliangpi.jpg"
+  },
+  {
+    "name": "广元凉面",
+    "price": "8",
+    "pic": "data/images/xiaochi/guangyuanliangmian.jpg"
+  }
+]

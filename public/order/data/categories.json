@@ -1,0 +1,26 @@
+[
+  {
+    "name": "套餐",
+    "url": "data/taocan.json"
+  },
+  {
+    "name": "盖饭",
+    "url": "data/gaifan.json"
+  },
+  {
+    "name": "炒饭",
+    "url": "data/chaofan.json"
+  },
+  {
+    "name": "卤味饭",
+    "url": "data/luweifan.json"
+  },
+  {
+    "name": "小吃",
+    "url": "data/xiaochi.json"
+  },
+  {
+    "name": "饮料",
+    "url": "data/yinliao.json"
+  }
+]
