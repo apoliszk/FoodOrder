@@ -32,13 +32,17 @@ Ext.define('SUM.view.SummaryGrid', {
         items: [{
             icon: '../images/detail.gif',
             handler: function (grid, rowIndex, colIndex) {
-
+                grid.up('summarygrid').fireEvent('showDetail', grid.getStore().getAt(rowIndex));
             }
         }]
     }],
 
     initComponent: function () {
         var me = this;
+
+        me.addEvents(
+            'showDetail'
+        );
 
         Ext.apply(me, {
             dockedItems: [{

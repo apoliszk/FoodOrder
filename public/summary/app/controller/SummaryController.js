@@ -4,6 +4,20 @@ Ext.define('SUM.controller.SummaryController', {
     refs: [
         {ref: 'summaryGrid', selector: 'summarygrid'},
     ],
+
+    init: function() {
+        var me = this;
+        me.control({
+            'summarygrid': {
+                showDetail: me.showSummaryDetail
+            }
+        });
+    },
+
+    showSummaryDetail: function(record) {
+        debugger;
+    },
+
     onLaunch: function () {
         var store = this.getOrdersStore();
         store.load({
@@ -11,6 +25,7 @@ Ext.define('SUM.controller.SummaryController', {
             scope: this
         });
     },
+
     getOrdersCompleteHandler: function (records, operation, success) {
         if (success) {
             var foodDic = {};
