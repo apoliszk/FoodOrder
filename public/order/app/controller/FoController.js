@@ -42,8 +42,8 @@ Ext.define('FO.controller.FoController', {
 
     cancelFoodOrder: function () {
         var mask = new Ext.LoadMask({
-            msg    : '订单取消中...',
-            target : Ext.getBody()
+            msg: '订单取消中...',
+            target: Ext.getBody()
         });
         mask.show();
 
@@ -115,8 +115,8 @@ Ext.define('FO.controller.FoController', {
 
     submitFoodOrder: function (grid) {
         var mask = new Ext.LoadMask({
-            msg    : '订单提交中...',
-            target : Ext.getBody()
+            msg: '订单提交中...',
+            target: Ext.getBody()
         });
         mask.show();
         var store = grid.getStore();

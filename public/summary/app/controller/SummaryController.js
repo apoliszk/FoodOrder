@@ -9,7 +9,12 @@ Ext.define('SUM.controller.SummaryController', {
         var me = this;
         me.control({
             'summarygrid': {
-                showDetail: me.showSummaryDetail
+                showdetail: me.showSummaryDetail,
+                scope: me
+            },
+            'ordergrid': {
+                cancelfoodorder: me.cancelOrder,
+                scope: me
             }
         });
     },
@@ -43,7 +48,45 @@ Ext.define('SUM.controller.SummaryController', {
         }).show();
     },
 
+    cancelOrder: function (rowIndex) {
+        var me = this;
+
+        Ext.Msg.show({
+            title: '提示',
+            msg: '确定取消该订单吗？',
+            buttons: Ext.Msg.OKCANCEL,
+            icon: Ext.Msg.WARNING,
+            fn: function (btn) {
+                if (btn === 'ok') {
+                    var mask = new Ext.LoadMask({
+                        msg: '订单取消中...',
+                        target: Ext.getBody()
+                    });
+                    mask.show();
+
+                    var store = me.getOrderGrid().getStore();
+                    store.removeAt(rowIndex);
+                    store.sync({
+                        success: function () {
+                            mask.hide();
+                            Ext.tmpMsg.msg('取消订单成功', false);
+                        },
+                        failure: function () {
+                            mask.hide();
+                            Ext.tmpMsg.msg('取消订单失败', true);
+                            me.loadOrder();
+                        }
+                    });
+                }
+            }
+        });
+    },
+
     onLaunch: function () {
+        this.loadOrder();
+    },
+
+    loadOrder: function () {
         var store = this.getOrderGrid().getStore();
         store.load({
             callback: this.getOrdersCompleteHandler,
@@ -77,6 +120,7 @@ Ext.define('SUM.controller.SummaryController', {
                 arr.push(foodDic[food]);
             }
             var summaryGridStore = this.getSummaryGrid().getStore();
+            summaryGridStore.removeAll();
             summaryGridStore.add(arr);
         }
     }

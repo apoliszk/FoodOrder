@@ -27,21 +27,15 @@ db.once('open', function () {
     });
 
     app.post('/order/order', function (req, res) {
-        var dateObj = getStartEndDate();
-        var userIp = getRequestIp(req);
-
-        var model = global.models.Order;
-
-        var deleteOrder = req.body;
-        if (deleteOrder.orderId) {
-            model.remove({_id: mongoose.Types.ObjectId(deleteOrder.orderId)}, function (err) {
-                var result = {success: true};
-                if (err) {
-                    result.success = false;
-                }
-                res.end(JSON.stringify(result));
-            });
+        var orderObj = req.body;
+        if (orderObj.orderId) {
+            cancelOrder(orderObj, req, res);
         } else {
+            var model = global.models.Order;
+
+            var dateObj = getStartEndDate();
+            var userIp = getRequestIp(req);
+
             model.find({
                 userIp: userIp,
                 time: {$gte: dateObj.start, $lt: dateObj.end}
@@ -51,7 +45,6 @@ db.once('open', function () {
                     result.success = false;
                     res.end(JSON.stringify(result));
                 } else {
-                    var orderObj = req.body;
                     orderObj.time = dateObj.now;
                     orderObj.userIp = userIp;
 
@@ -114,6 +107,7 @@ db.once('open', function () {
                 for (var i = 0; i < len; i++) {
                     var orderModel = doc[i];
                     var orderObj = {};
+                    orderObj.orderId = orderModel.id.toString();
                     orderObj.user = orderModel.userIp;
                     orderObj.time = formatDate(orderModel.time);
                     orderObj.items = orderModel.shoppingCartItems;
@@ -129,9 +123,25 @@ db.once('open', function () {
         });
     });
 
+    app.post('/summary/order', function (req, res) {
+        cancelOrder(req.body, req, res);
+    });
+
     var server = app.listen(8888, function () {
         console.log('Listening on port %d', server.address().port);
     });
+
+    function cancelOrder(deleteOrder, req, res) {
+        var model = global.models.Order;
+
+        model.remove({_id: mongoose.Types.ObjectId(deleteOrder.orderId)}, function (err) {
+            var result = {success: true};
+            if (err) {
+                result.success = false;
+            }
+            res.end(JSON.stringify(result));
+        });
+    }
 
     function getRequestIp(req) {
         var ip = req.ip;

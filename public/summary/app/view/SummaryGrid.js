@@ -26,7 +26,7 @@ Ext.define('SUM.view.SummaryGrid', {
         items: [{
             icon: '../images/detail.gif',
             handler: function (grid, rowIndex, colIndex) {
-                grid.up('summarygrid').fireEvent('showDetail', grid.getStore().getAt(rowIndex));
+                grid.up('summarygrid').fireEvent('showdetail', grid.getStore().getAt(rowIndex));
             }
         }]
     }],
@@ -35,7 +35,7 @@ Ext.define('SUM.view.SummaryGrid', {
         var me = this;
 
         me.addEvents(
-            'showDetail'
+            'showdetail'
         );
 
         Ext.apply(me, {

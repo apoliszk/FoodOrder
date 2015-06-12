@@ -2,9 +2,11 @@ Ext.define('SUM.view.OrderGrid', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.ordergrid',
     store: Ext.create('SUM.store.Orders'),
+
     enableColumnHide: false,
     enableColumnMove: false,
     columnLines: true,
+
     columns: [{
         text: '用户',
         dataIndex: 'user',
@@ -31,5 +33,24 @@ Ext.define('SUM.view.OrderGrid', {
         renderer: function (v) {
             return "￥" + v;
         }
-    }]
+    }, {
+        xtype: 'actioncolumn',
+        width: 50,
+        items: [{
+            icon: '../images/delete.gif',
+            handler: function (grid, rowIndex, colIndex) {
+                grid.up('ordergrid').fireEvent('cancelfoodorder', rowIndex);
+            }
+        }]
+    }],
+
+    initComponent: function () {
+        var me = this;
+
+        me.addEvents(
+            'cancelfoodorder'
+        );
+
+        me.callParent(arguments);
+    }
 });
