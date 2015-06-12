@@ -70,6 +70,7 @@ Ext.define('SUM.controller.SummaryController', {
                         success: function () {
                             mask.hide();
                             Ext.tmpMsg.msg('取消订单成功', false);
+                            me.loadOrder();
                         },
                         failure: function () {
                             mask.hide();
