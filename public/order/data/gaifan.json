@@ -30,11 +30,6 @@
     "pic": "data/images/gaifan/tufeizhugan.jpg"
   },
   {
-    "name": "红烧肥肠饭",
-    "price": "14",
-    "pic": "data/images/gaifan/hongshaofeichang.jpg"
-  },
-  {
     "name": "干锅包菜饭",
     "price": "10",
     "pic": "data/images/gaifan/ganguobaocai.jpg"
@@ -128,6 +123,11 @@
     "name": "木须肉饭",
     "price": "12",
     "pic": "data/images/gaifan/muxurou.jpg"
+  },
+  {
+    "name": "家常豆腐饭",
+    "price": "10",
+    "pic": "data/images/gaifan/jiachangdoufu.jpg"
   },
   {
     "name": "青椒腊肠饭",

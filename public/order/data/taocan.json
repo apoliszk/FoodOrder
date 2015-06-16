@@ -1,27 +1,27 @@
 [
   {
-    "name": "咖喱猪排套餐",
+    "name": "酱香鸭块套餐",
+    "price": "12",
+    "pic": "data/images/taocan/jiangxiangyakuai.jpg"
+  },
+  {
+    "name": "蒜苔炒牛肉套餐",
     "price": "15",
-    "pic": "data/images/taocan/galizhupai.jpg"
+    "pic": "data/images/taocan/suantaichaoniurou.jpg"
   },
   {
-    "name": "红烧鸭块套餐",
+    "name": "红烧带鱼套餐",
     "price": "12",
-    "pic": "data/images/taocan/hongshaoyakuai.jpg"
+    "pic": "data/images/taocan/hongshaodaiyu.jpg"
   },
   {
-    "name": "胡萝卜藕丁鸡块套餐",
-    "price": "12",
-    "pic": "data/images/taocan/huluobooudingjikuai.jpg"
-  },
-  {
-    "name": "糖醋鱼块套餐",
-    "price": "12",
-    "pic": "data/images/taocan/tangcuyukuai.jpg"
-  },
-  {
-    "name": "滑炒牛柳套餐",
+    "name": "香辣鸡翅套餐",
     "price": "15",
-    "pic": "data/images/taocan/huachaoniuliu.jpg"
+    "pic": "data/images/taocan/xianglajichi.jpg"
+  },
+  {
+    "name": "海带结炖排骨套餐",
+    "price": "12",
+    "pic": "data/images/taocan/haidaijiedunpaigu.jpg"
   }
 ]

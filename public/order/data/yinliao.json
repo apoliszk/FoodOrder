@@ -1,18 +1,28 @@
 [
   {
+    "name": "雪菲力柠檬味盐汽水",
+    "price": "3",
+    "pic": "data/images/yinliao/xuefeili.jpg"
+  },
+  {
+    "name": "怡宝矿泉水",
+    "price": "2",
+    "pic": "data/images/yinliao/yibao.jpg"
+  },
+  {
+    "name": "雪花啤酒",
+    "price": "3.5",
+    "pic": "data/images/yinliao/xuehua.jpg"
+  },
+  {
     "name": "康师傅冰红茶",
     "price": "2",
     "pic": "data/images/yinliao/kangshifubinghongcha.jpg"
   },
   {
-    "name": "矿泉水",
-    "price": "2",
-    "pic": "data/images/yinliao/kuangquanshui.jpg"
-  },
-  {
-    "name": "王老吉",
+    "name": "加多宝",
     "price": "4",
-    "pic": "data/images/yinliao/wanglaoji.jpg"
+    "pic": "data/images/yinliao/jiaduobao.jpg"
   },
   {
     "name": "雪碧",
